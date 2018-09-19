@@ -12,4 +12,14 @@ class Pub
     @till += drink.price
   end
 
+  def check_age(customer, drink)
+    if customer.age >= 18
+      customer.buy_drink(drink)
+      sell_drink(drink)
+    else
+      return "Too young!"
+    end
+  end
+
+
 end

@@ -8,8 +8,8 @@ class TestCustomers < MiniTest::Test
   def setup
     @drink1 = Drink.new("beer", 2)
     @drink2 = Drink.new("wine", 3)
-    @customer1 = Customer.new("Andrew", 10)
-    @customer2 = Customer.new("Katie", 15)
+    @customer1 = Customer.new("Andrew", 10, 26)
+    @customer2 = Customer.new("Katie", 15, 25)
   end
 
   def test_customer_has_name
@@ -18,6 +18,10 @@ class TestCustomers < MiniTest::Test
 
   def test_customer_has_money
     assert_equal(15, @customer2.wallet)
+  end
+
+  def test_customer_has_age
+    assert_equal(26, @customer1.age)
   end
 
   def test_has_bought_drink
