@@ -29,5 +29,8 @@ class Pub
     end
   end
 
+  def sells_food(food)
+    @till += food.price
+  end
 
 end

@@ -3,12 +3,16 @@ require 'minitest/rg'
 require_relative '../pub'
 require_relative '../drink'
 require_relative '../customers'
+require_relative '../food'
 
 class TestPub < MiniTest::Test
 
   def setup
     @drink1 = Drink.new("beer", 2, 10)
     @drink2 = Drink.new("wine", 3, 20)
+    @food1 = Food.new("burger", 8, 30)
+    @food2 = Food.new("pizza", 7, 20)
+    @food3 = Food.new("pie", 5, 10)
     @customer1 = Customer.new("Andrew", 10, 26, 0)
     @customer2 = Customer.new("Katie", 15, 17, 0)
     @pub = Pub.new("Chanter", 1000, [@drink1, @drink2])
@@ -48,6 +52,11 @@ class TestPub < MiniTest::Test
     result2 = @pub.check_drunkenness_level(@customer2)
     assert_equal("Here's your drink!", result2)
     assert_equal("Go home!", result1)
+  end
+
+  def test_sells_food
+    @pub.sells_food(@food1)
+    assert_equal(1008, @pub.till)
   end
 
 end
