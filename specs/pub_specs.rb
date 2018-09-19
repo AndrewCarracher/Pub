@@ -42,4 +42,12 @@ class TestPub < MiniTest::Test
     assert_equal(15, @customer2.wallet)
   end
 
+  def test_refuse_service_too_drunk
+    3.times {@customer1.drinks_drink(@drink2)}
+    result1 = @pub.check_drunkenness_level(@customer1)
+    result2 = @pub.check_drunkenness_level(@customer2)
+    assert_equal("Here's your drink!", result2)
+    assert_equal("Go home!", result1)
+  end
+
 end

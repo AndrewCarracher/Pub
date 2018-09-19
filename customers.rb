@@ -11,6 +11,7 @@ class Customer
 
   def buy_drink(drink)
     @wallet -= drink.price
+    drinks_drink(drink)
   end
 
   def drinks_drink(drink)

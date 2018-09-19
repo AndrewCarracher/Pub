@@ -21,5 +21,13 @@ class Pub
     end
   end
 
+  def check_drunkenness_level(customer)
+    if customer.drunkenness >= 60
+      return "Go home!"
+    else
+      return "Here's your drink!"
+    end
+  end
+
 
 end
