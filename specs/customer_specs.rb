@@ -6,10 +6,10 @@ require_relative '../drink'
 class TestCustomers < MiniTest::Test
 
   def setup
-    @drink1 = Drink.new("beer", 2)
-    @drink2 = Drink.new("wine", 3)
-    @customer1 = Customer.new("Andrew", 10, 26)
-    @customer2 = Customer.new("Katie", 15, 25)
+    @drink1 = Drink.new("beer", 2, 10)
+    @drink2 = Drink.new("wine", 3, 20)
+    @customer1 = Customer.new("Andrew", 10, 26, 0)
+    @customer2 = Customer.new("Katie", 15, 25, 0)
   end
 
   def test_customer_has_name
@@ -27,6 +27,15 @@ class TestCustomers < MiniTest::Test
   def test_has_bought_drink
     @customer2.buy_drink(@drink2)
     assert_equal(12, @customer2.wallet)
+  end
+
+  def test_customer_drunkenness
+    assert_equal(0, @customer2.drunkenness)
+  end
+
+  def test_customer_drunkenness_after_drink
+    @customer2.drinks_drink(@drink2)
+    assert_equal(20, @customer2.drunkenness)
   end
 
 end

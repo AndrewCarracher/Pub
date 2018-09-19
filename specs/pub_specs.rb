@@ -7,10 +7,10 @@ require_relative '../customers'
 class TestPub < MiniTest::Test
 
   def setup
-    @drink1 = Drink.new("beer", 2)
-    @drink2 = Drink.new("wine", 3)
-    @customer1 = Customer.new("Andrew", 10, 26)
-    @customer2 = Customer.new("Katie", 15, 17)
+    @drink1 = Drink.new("beer", 2, 10)
+    @drink2 = Drink.new("wine", 3, 20)
+    @customer1 = Customer.new("Andrew", 10, 26, 0)
+    @customer2 = Customer.new("Katie", 15, 17, 0)
     @pub = Pub.new("Chanter", 1000, [@drink1, @drink2])
   end
 
