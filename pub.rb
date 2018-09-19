@@ -29,8 +29,12 @@ class Pub
     end
   end
 
-  def sells_food(food)
-    @till += food.price
+  def sells_food(customer, food)
+    if customer_can_afford(customer, food) == true
+      @till += food.price
+    else
+      p "You don't have enough dosh!"
+    end
   end
 
   def stock_value
@@ -40,6 +44,14 @@ class Pub
       result += drink[:stock]
     end
     return result
+  end
+
+  def customer_can_afford(customer, purchase)
+    if customer.wallet >= purchase.price
+      return true
+    else
+      return false
+    end
   end
 
 end

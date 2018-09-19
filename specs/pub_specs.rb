@@ -64,7 +64,7 @@ class TestPub < MiniTest::Test
   end
 
   def test_sells_food
-    @pub.sells_food(@food1)
+    @pub.sells_food(@customer2, @food1)
     assert_equal(1008, @pub.till)
   end
 
@@ -74,6 +74,10 @@ class TestPub < MiniTest::Test
 
   def test_stock_value
     assert_equal(500, @pub.stock_value)
+  end
+
+  def test_customer_can_afford
+    assert_equal(true, @pub.customer_can_afford(@customer1, @food1))
   end
 
 end
