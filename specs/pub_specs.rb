@@ -15,7 +15,16 @@ class TestPub < MiniTest::Test
     @food3 = Food.new("pie", 5, 10)
     @customer1 = Customer.new("Andrew", 10, 26, 0)
     @customer2 = Customer.new("Katie", 15, 17, 0)
-    @pub = Pub.new("Chanter", 1000, [@drink1, @drink2])
+    @pub = Pub.new("Chanter", 1000, [
+      {
+        drink: @drink1,
+        stock: 300
+      },
+      {
+        drink: @drink2,
+        stock: 200
+      }
+      ])
   end
 
   def test_pub_has_name
@@ -27,7 +36,7 @@ class TestPub < MiniTest::Test
   end
 
   def test_pub_has_stock
-    assert_equal([@drink1, @drink2], @pub.drinks)
+    assert_equal(2, @pub.drinks.length)
   end
 
   def test_sell_drink
@@ -57,6 +66,10 @@ class TestPub < MiniTest::Test
   def test_sells_food
     @pub.sells_food(@food1)
     assert_equal(1008, @pub.till)
+  end
+
+  def test_drink_has_stock_level
+    assert_equal(300, @pub.drinks[0][:stock])
   end
 
 end

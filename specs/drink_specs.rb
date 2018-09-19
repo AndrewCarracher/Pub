@@ -21,6 +21,5 @@ class TestDrinks < MiniTest::Test
     assert_equal(20, @drink2.alcohol_level)
   end
 
-  
 
 end
