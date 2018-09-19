@@ -33,4 +33,13 @@ class Pub
     @till += food.price
   end
 
+  def stock_value
+    result = 0
+
+    for drink in @drinks
+      result += drink[:stock]
+    end
+    return result
+  end
+
 end

@@ -72,4 +72,8 @@ class TestPub < MiniTest::Test
     assert_equal(300, @pub.drinks[0][:stock])
   end
 
+  def test_stock_value
+    assert_equal(500, @pub.stock_value)
+  end
+
 end
